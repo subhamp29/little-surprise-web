@@ -234,14 +234,14 @@
   }
 
   /* -------------------------------------------------------------------------
-     6. A Little Surprise Message Generator (Hinglish Surprises)
+     6. A Little Surprise Message Generator (No-Repeat & Final Message)
      ------------------------------------------------------------------------- */
   const surpriseBtn = document.getElementById("surpriseGeneratorBtn");
   const surpriseText = document.getElementById("surpriseText");
   const surpriseCard = document.getElementById("surpriseCard");
   const surpriseCounter = document.getElementById("surpriseCounter");
 
-  const sweetSurprises = [
+  const initialSurprises = [
     "Devi jiii, pranam swikar karen. Hamesha ashirwad banaye rakhna. 🙏✨",
     "Itna toh banta hai, tum special jo ho. ♡",
     "Smile aa gayi? Toh mission successful!",
@@ -251,38 +251,76 @@
     "Thoda sa aaraam karo, deep breath lo... aur yaad rakhna you're doing great!"
   ];
 
-  let lastIndex = -1;
+  // Create a randomized copy that drains without repetition
+  function shuffleArray(arr) {
+    const shuffled = [...arr];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  }
+
+  let remainingSurprises = shuffleArray(initialSurprises);
+  const totalSurprises = initialSurprises.length;
   let drawCount = 0;
 
   if (surpriseBtn && surpriseText) {
     surpriseBtn.addEventListener("click", () => {
-      let nextIndex;
-      do {
-        nextIndex = Math.floor(Math.random() * sweetSurprises.length);
-      } while (nextIndex === lastIndex && sweetSurprises.length > 1);
+      if (remainingSurprises.length > 0) {
+        const nextMessage = remainingSurprises.pop();
+        drawCount++;
 
-      lastIndex = nextIndex;
-      drawCount++;
+        // Trigger gentle bounce effect
+        if (surpriseCard) {
+          surpriseCard.style.transform = "scale(0.96)";
+          setTimeout(() => {
+            surpriseCard.style.transform = "scale(1)";
+          }, 180);
+        }
 
-      // Trigger bounce effect on card
-      if (surpriseCard) {
-        surpriseCard.style.transform = "scale(0.96)";
-        setTimeout(() => {
-          surpriseCard.style.transform = "scale(1)";
-        }, 180);
-      }
+        surpriseText.textContent = nextMessage;
 
-      surpriseText.textContent = sweetSurprises[nextIndex];
-      if (surpriseCounter) {
-        surpriseCounter.textContent = `Unlocked surprise #${drawCount} ♡`;
-      }
+        if (surpriseCounter) {
+          surpriseCounter.textContent = `Surprise ${drawCount} of ${totalSurprises} unlocked ♡`;
+        }
 
-      // Spawn burst heart at button location
-      const rect = surpriseBtn.getBoundingClientRect();
-      createTapBurst(rect.left + rect.width / 2, rect.top + rect.height / 2);
+        // Tap burst effect at button location
+        const rect = surpriseBtn.getBoundingClientRect();
+        createTapBurst(rect.left + rect.width / 2, rect.top + rect.height / 2);
 
-      if (navigator.vibrate) {
-        try { navigator.vibrate(30); } catch (err) {}
+        if (navigator.vibrate) {
+          try { navigator.vibrate(30); } catch (err) {}
+        }
+
+        // Check if this was the last available surprise
+        if (remainingSurprises.length === 0) {
+          // Disable/fade out the button smoothly
+          surpriseBtn.disabled = true;
+          surpriseBtn.classList.add("hidden");
+
+          // Display the final apology message in center with celebration
+          setTimeout(() => {
+            if (surpriseCard) {
+              surpriseCard.classList.add("finished");
+            }
+            surpriseText.innerHTML = "Bas surprises itne hii thee, maaf krna Devi Ji... aur kuch dimag mein aaya nahi. 😭😂";
+
+            if (surpriseCounter) {
+              surpriseCounter.textContent = "Saare surprises khatam ho gaye! ✨";
+            }
+
+            // Spawn special shower of burst hearts
+            if (surpriseCard) {
+              const cardRect = surpriseCard.getBoundingClientRect();
+              for (let k = -2; k <= 2; k++) {
+                setTimeout(() => {
+                  createTapBurst(cardRect.left + cardRect.width / 2 + k * 35, cardRect.top + cardRect.height / 2 + (Math.random() * 20 - 10));
+                }, Math.abs(k) * 120);
+              }
+            }
+          }, 450);
+        }
       }
     });
   }
