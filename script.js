@@ -14,12 +14,12 @@
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* -------------------------------------------------------------------------
-     1. Floating Hearts Background Generator
-     Max 12 hearts simultaneously, ~1.4s interval on mobile, memory-safe cleanup
+     1. Floating Hearts Background Generator (Subtle & Minimal)
+     Max 7 hearts simultaneously on mobile, gentle 2.2s pace
      ------------------------------------------------------------------------- */
   const heartContainer = document.getElementById("floating-hearts");
-  const MAX_HEARTS = isMobile ? 12 : 20;
-  const HEART_INTERVAL_MS = isMobile ? 1400 : 800;
+  const MAX_HEARTS = isMobile ? 7 : 12;
+  const HEART_INTERVAL_MS = isMobile ? 2200 : 1400;
 
   function spawnFloatingHeart() {
     if (reducedMotion || document.hidden || !heartContainer) return;
