@@ -124,6 +124,29 @@
     });
   }
 
+  // Teasing Note animation on Goodbye screen scroll
+  const teasingNote = document.getElementById("teasingNote");
+  const goodbyeSection = document.getElementById("goodbyeSection");
+  if (teasingNote && goodbyeSection) {
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              teasingNote.classList.add("revealed");
+            }, reducedMotion ? 100 : 800);
+            observer.unobserve(goodbyeSection);
+          }
+        });
+      }, { threshold: 0.3 });
+      observer.observe(goodbyeSection);
+    } else {
+      setTimeout(() => {
+        teasingNote.classList.add("revealed");
+      }, 1000);
+    }
+  }
+
   /* -------------------------------------------------------------------------
      4. Scattered Notes Modal Dialog Interaction
      Tapping any note opens the full personalized note in a dreamy modal.
