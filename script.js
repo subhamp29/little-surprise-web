@@ -99,52 +99,120 @@
   runTypewriter();
 
   /* -------------------------------------------------------------------------
-     3. Smooth Navigation: Enter My World & Return to Top
+     3. Cinematic Single-Page Screen Switching Navigation
+     6 independent screens with blur, scale, and paper airplane glide transition
      ------------------------------------------------------------------------- */
+  const screens = [
+    document.getElementById("welcome"),
+    document.getElementById("notesSection"),
+    document.getElementById("letterSection"),
+    document.getElementById("memoriesSection"),
+    document.getElementById("surpriseSection"),
+    document.getElementById("goodbyeSection")
+  ];
+
+  let currentScreenIndex = 0;
+  let isTransitioning = false;
+
+  // Set initial screen
+  screens.forEach((screen, index) => {
+    if (!screen) return;
+    if (index === 0) {
+      screen.classList.add("active");
+    } else {
+      screen.classList.remove("active");
+      screen.classList.remove("exit");
+    }
+  });
+
+  const airplaneContainer = document.getElementById("airplaneContainer");
+
+  function triggerAirplaneTransition() {
+    if (!airplaneContainer || reducedMotion) return;
+    airplaneContainer.classList.remove("flying");
+    airplaneContainer.classList.remove("transitioning");
+    void airplaneContainer.offsetWidth; // Force reflow
+    airplaneContainer.classList.add("transitioning");
+  }
+
+  function goToScreen(targetIndex) {
+    if (isTransitioning || targetIndex === currentScreenIndex) return;
+    if (targetIndex < 0 || targetIndex >= screens.length) return;
+
+    isTransitioning = true;
+    const currentScreen = screens[currentScreenIndex];
+    const nextScreen = screens[targetIndex];
+
+    if (!currentScreen || !nextScreen) {
+      isTransitioning = false;
+      return;
+    }
+
+    // 1. Trigger paper airplane animation across screen
+    triggerAirplaneTransition();
+
+    // 2. Animate current screen exit (blur and fade)
+    currentScreen.classList.add("exit");
+    currentScreen.classList.remove("active");
+
+    const transitionDelay = reducedMotion ? 50 : 550;
+
+    setTimeout(() => {
+      // 3. Deactivate old screen and activate next screen
+      currentScreen.classList.remove("exit");
+      currentScreen.scrollTop = 0; // Reset scroll position internally
+
+      nextScreen.scrollTop = 0;
+      nextScreen.classList.add("active");
+      currentScreenIndex = targetIndex;
+
+      // Special screen triggers
+      if (targetIndex === 5) {
+        // Goodbye screen: reveal teasing note after entrance
+        const teasingNote = document.getElementById("teasingNote");
+        if (teasingNote) {
+          teasingNote.classList.remove("revealed");
+          setTimeout(() => {
+            teasingNote.classList.add("revealed");
+          }, reducedMotion ? 100 : 700);
+        }
+      }
+
+      setTimeout(() => {
+        isTransitioning = false;
+      }, reducedMotion ? 50 : 400);
+    }, transitionDelay);
+  }
+
+  // Connect Navigation Buttons
   const enterWorldBtn = document.getElementById("enterWorldBtn");
   if (enterWorldBtn) {
-    enterWorldBtn.addEventListener("click", () => {
-      const notesSection = document.getElementById("notesSection");
-      if (notesSection) {
-        notesSection.scrollIntoView({
-          behavior: reducedMotion ? "auto" : "smooth",
-          block: "start"
-        });
-      }
-    });
+    enterWorldBtn.addEventListener("click", () => goToScreen(1)); // Welcome -> Notes
+  }
+
+  const notesToLetterBtn = document.getElementById("notesToLetterBtn");
+  if (notesToLetterBtn) {
+    notesToLetterBtn.addEventListener("click", () => goToScreen(2)); // Notes -> Letter
+  }
+
+  const letterToMemoriesBtn = document.getElementById("letterToMemoriesBtn");
+  if (letterToMemoriesBtn) {
+    letterToMemoriesBtn.addEventListener("click", () => goToScreen(3)); // Letter -> Memories
+  }
+
+  const memoriesToSurpriseBtn = document.getElementById("memoriesToSurpriseBtn");
+  if (memoriesToSurpriseBtn) {
+    memoriesToSurpriseBtn.addEventListener("click", () => goToScreen(4)); // Memories -> Surprise
+  }
+
+  const surpriseToGoodbyeBtn = document.getElementById("surpriseToGoodbyeBtn");
+  if (surpriseToGoodbyeBtn) {
+    surpriseToGoodbyeBtn.addEventListener("click", () => goToScreen(5)); // Surprise -> Goodbye
   }
 
   const backToTopBtn = document.getElementById("backToTopBtn");
   if (backToTopBtn) {
-    backToTopBtn.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: reducedMotion ? "auto" : "smooth"
-      });
-    });
-  }
-
-  // Teasing Note animation on Goodbye screen scroll
-  const teasingNote = document.getElementById("teasingNote");
-  const goodbyeSection = document.getElementById("goodbyeSection");
-  if (teasingNote && goodbyeSection) {
-    if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => {
-              teasingNote.classList.add("revealed");
-            }, reducedMotion ? 100 : 800);
-            observer.unobserve(goodbyeSection);
-          }
-        });
-      }, { threshold: 0.3 });
-      observer.observe(goodbyeSection);
-    } else {
-      setTimeout(() => {
-        teasingNote.classList.add("revealed");
-      }, 1000);
-    }
+    backToTopBtn.addEventListener("click", () => goToScreen(0)); // Goodbye -> Welcome
   }
 
   /* -------------------------------------------------------------------------
@@ -233,13 +301,6 @@
       if (navigator.vibrate) {
         try { navigator.vibrate(40); } catch (e) {}
       }
-
-      setTimeout(() => {
-        revealedLetter.scrollIntoView({
-          behavior: reducedMotion ? "auto" : "smooth",
-          block: "nearest"
-        });
-      }, 350);
     } else {
       revealedLetter.classList.remove("visible");
       if (envelopeHint) envelopeHint.textContent = "Envelope kholne ke liye seal par tap karo";
