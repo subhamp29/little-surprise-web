@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffd5e5"/>
+      <stop offset="50%" stop-color="#e8d3f7"/>
+      <stop offset="100%" stop-color="#ffe9d6"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff8db" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ffb6c1" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <rect width="400" height="300" rx="16" fill="url(#skyGrad)"/>
+  <circle cx="280" cy="90" r="45" fill="url(#sunGlow)"/>
+  <!-- Gentle rolling hills -->
+  <path d="M 0,220 Q 90,180 200,210 T 400,195 L 400,300 L 0,300 Z" fill="#d8b2db" opacity="0.45"/>
+  <path d="M 0,240 Q 120,200 240,230 T 400,220 L 400,300 L 0,300 Z" fill="#e7a5c2" opacity="0.6"/>
+  <!-- Floating clouds -->
+  <g fill="#ffffff" opacity="0.75" filter="url(#softGlow)">
+    <ellipse cx="110" cy="95" rx="35" ry="16"/>
+    <ellipse cx="130" cy="88" rx="25" ry="20"/>
+    <ellipse cx="90" cy="98" rx="20" ry="12"/>
+    <ellipse cx="320" cy="140" rx="40" ry="16"/>
+    <ellipse cx="340" cy="132" rx="24" ry="18"/>
+  </g>
+  <!-- Tiny stars -->
+  <g fill="#ffffff" opacity="0.9">
+    <path d="M70,50 Q70,58 78,58 Q70,58 70,66 Q70,58 62,58 Q70,58 70,50 Z"/>
+    <path d="M220,70 Q220,76 226,76 Q220,76 220,82 Q220,76 214,76 Q220,76 220,70 Z"/>
+    <path d="M350,60 Q350,65 355,65 Q350,65 350,70 Q350,65 345,65 Q350,65 350,60 Z"/>
+  </g>
+</svg>
+

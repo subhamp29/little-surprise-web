@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#f5c5d8">
+  <meta name="description"
+    content="Tumhare liye ek pyara sa dreamy space — handwritten notes, sweet thoughts aur chhota sa surprise.">
+  <title>Tumhare Liye Ek Chhota Sa Surprise ♡</title>
+
+  <!-- Google Fonts: Playfair Display (Serif), Caveat & Marck Script (Handwritten) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Marck+Script&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Ambient background glow layers -->
+  <div class="dreamy-background" aria-hidden="true">
+    <div class="blur-circle circle-one"></div>
+    <div class="blur-circle circle-two"></div>
+    <div class="blur-circle circle-three"></div>
+    <div class="bokeh bokeh-one"></div>
+    <div class="bokeh bokeh-two"></div>
+  </div>
+
+  <!-- Animated Flying Paper Airplane -->
+  <div id="airplaneContainer" class="airplane-container" aria-hidden="true">
+    <img src="assets/images/airplane.svg" alt="" class="airplane-img">
+  </div>
+
+  <!-- Floating Hearts Background Container -->
+  <div id="floating-hearts" aria-hidden="true"></div>
+
+  <!-- Music Player Controller -->
+  <header class="top-nav">
+    <button id="musicToggle" class="music-toggle" aria-label="Sweet background melody play ya pause karein"
+      title="Sweet melody">
+      <span class="music-icon" aria-hidden="true">🎵</span>
+      <span class="music-label">Melody: Off</span>
+    </button>
+  </header>
+
+  <main class="page-container">
+
+    <!-- =========================================================================
+         SCREEN 1: WELCOME
+         ========================================================================= -->
+    <section class="screen-section screen-welcome" id="welcome">
+      <div class="welcome-content">
+        <p class="greeting-pre">Tumhare liye kuch chhota sa surprise hai...</p>
+        <h1 class="main-title">Oho, aakhir tum aa hi gayi, Payal! ♡</h1>
+        <p class="typewriter-text" id="typewriterIntro">
+          <span class="tw-content"></span><span class="tw-cursor">|</span>
+        </p>
+
+        <button id="enterWorldBtn" class="primary-btn" aria-label="Aage badhein">
+          Dekho kya hai andar <span class="heart-pulse">♡</span>
+        </button>
+      </div>
+
+      <div class="scroll-indicator" aria-hidden="true">
+        <span>neeche scroll karo</span>
+        <div class="down-arrow">↓</div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SCREEN 2: LITTLE NOTES
+         ========================================================================= -->
+    <section class="screen-section screen-notes" id="notesSection">
+      <div class="section-header">
+        <span class="section-tag">Thode se pyare thoughts</span>
+        <h2 class="section-title">Bikhre Huye Notes ♡</h2>
+        <p class="section-desc">Kisi bhi note ko tap karke pura padh sakti ho</p>
+      </div>
+
+      <div class="notes-cluster" role="region" aria-label="Scattered notes">
+        <!-- Note 1 -->
+        <article class="paper-note note-1" tabindex="0" role="button" data-title="Woh Smile :)"
+          data-message="Tumhari smile kaafi special hai, bas bata rahi hoon. Jab bhi hasti ho, aaspas ka mahaul thoda aur khubsurat ho jaata hai."
+          aria-haspopup="dialog" aria-label="Note: Tumhari smile kaafi special hai">
+          <div class="tape-strip" aria-hidden="true"></div>
+          <p class="note-snippet">Tumhari smile kaafi special hai, bas bata rahi hoon ♡</p>
+          <span class="note-tap-hint">tap karke padho</span>
+        </article>
+
+        <!-- Note 2 -->
+        <article class="paper-note note-2" tabindex="0" role="button" data-title="Achha Lagta Hai"
+          data-message="Pata nahi kyun, tumse baat karke mood achha ho jaata hai. Chahe din kitna bhi busy ya thaka dene wala ho, tumhari baatein fresh bana deti hain."
+          aria-haspopup="dialog" aria-label="Note: Pata nahi kyun, tumse baat karke mood achha ho jaata hai">
+          <div class="tape-strip" aria-hidden="true"></div>
+          <p class="note-snippet">Pata nahi kyun, tumse baat karke mood achha ho jaata hai ♡</p>
+          <span class="note-tap-hint">tap karke padho</span>
+        </article>
+
+        <!-- Note 3 -->
+        <article class="paper-note note-3" tabindex="0" role="button" data-title="Kuch Toh Baat Hai"
+          data-message="Tumhari baaton mein kuch toh baat hai. Har chhoti baat itni effortlessly pyari kaise ho sakti hai?"
+          aria-haspopup="dialog" aria-label="Note: Tumhari baaton mein kuch toh baat hai">
+          <div class="tape-strip" aria-hidden="true"></div>
+          <p class="note-snippet">Tumhari baaton mein kuch toh baat hai ♡</p>
+          <span class="note-tap-hint">tap karke padho</span>
+        </article>
+
+        <!-- Note 4 -->
+        <article class="paper-note note-4" tabindex="0" role="button" data-title="Notification"
+          data-message="Tum online aati ho toh notification bhi special lagta hai. Screen pe tumhara naam aate hi face par bina reason wali smile aa jaati hai."
+          aria-haspopup="dialog" aria-label="Note: Tum online aati ho toh notification bhi special lagta hai">
+          <div class="tape-strip" aria-hidden="true"></div>
+          <p class="note-snippet">Tum online aati ho toh notification bhi special lagta hai ♡</p>
+          <span class="note-tap-hint">tap karke padho</span>
+        </article>
+
+        <!-- Note 5 -->
+        <article class="paper-note note-5" tabindex="0" role="button" data-title="Sirf Tumhare Liye"
+          data-message="Thoda sa blush kar lena, ye note sirf tumhare liye hai. Waise blush karte waqt tum aur bhi zyada cute lagti ho!"
+          aria-haspopup="dialog" aria-label="Note: Thoda sa blush kar lena, ye note sirf tumhare liye hai">
+          <div class="tape-strip" aria-hidden="true"></div>
+          <p class="note-snippet">Thoda sa blush kar lena, ye note sirf tumhare liye hai ♡</p>
+          <span class="note-tap-hint">tap karke padho</span>
+        </article>
+
+        <!-- Note 6 -->
+        <article class="paper-note note-6" tabindex="0" role="button" data-title="Just You"
+          data-message="Tum jaisi ho, waise hi achhi lagti ho. Koi formality ki zaroorat nahi hai, tumhara natural andaaz hi sabse pyara hai."
+          aria-haspopup="dialog" aria-label="Note: Tum jaisi ho, waise hi achhi lagti ho">
+          <div class="tape-strip" aria-hidden="true"></div>
+          <p class="note-snippet">Tum jaisi ho, waise hi achhi lagti ho ♡</p>
+          <span class="note-tap-hint">tap karke padho</span>
+        </article>
+
+        <!-- Note 7 -->
+        <article class="paper-note note-7" tabindex="0" role="button" data-title="Random Yaad"
+          data-message="Aaj itni yaad kyun aa rahi ho, koi reason bhi nahi hai. Shayad achhe log bina kisi reason ke hi dimaag mein chalte rehte hain."
+          aria-haspopup="dialog" aria-label="Note: Aaj itni yaad kyun aa rahi ho, koi reason bhi nahi hai">
+          <div class="tape-strip" aria-hidden="true"></div>
+          <p class="note-snippet">Aaj itni yaad kyun aa rahi ho, koi reason bhi nahi hai ♡</p>
+          <span class="note-tap-hint">tap karke padho</span>
+        </article>
+
+        <!-- Note 8 -->
+        <article class="paper-note note-8" tabindex="0" role="button" data-title="Din Banane Wali"
+          data-message="Kuch log bina effort ke bhi din bana dete hain... tum unmein se ho. Bas tumhari ek baat hi kafi hoti hai sab theek karne ke liye."
+          aria-haspopup="dialog" aria-label="Note: Kuch log bina effort ke bhi din bana dete hain... tum unmein se ho">
+          <div class="tape-strip" aria-hidden="true"></div>
+          <p class="note-snippet">Kuch log bina effort ke bhi din bana dete hain... tum unmein se ho ♡</p>
+          <span class="note-tap-hint">tap karke padho</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SCREEN 3: A LITTLE LETTER
+         ========================================================================= -->
+    <section class="screen-section screen-envelope" id="letterSection">
+      <div class="section-header">
+        <span class="section-tag">Khaas tumhare naam</span>
+        <h2 class="section-title">Ek Chhota Sa Letter ♡</h2>
+        <p class="envelope-instruction">Tumhare liye kuch chhota sa surprise hai...</p>
+      </div>
+
+      <div class="envelope-interactive-area">
+        <div class="envelope-3d" id="envelopeCard" tabindex="0" role="button" aria-expanded="false"
+          aria-label="Letter kholne ke liye tap karein">
+          <!-- Flap -->
+          <div class="env-flap"></div>
+          <!-- Pocket front -->
+          <div class="env-pocket"></div>
+          <!-- Wax Seal Heart -->
+          <div class="env-seal" title="Wax seal">
+            <span>♥</span>
+          </div>
+          <!-- Folded letter inside preview -->
+          <div class="letter-sheet-slip" id="letterSlip" aria-hidden="true">
+            <span class="sheet-lines"></span>
+          </div>
+        </div>
+
+        <p class="envelope-tap-cta" id="envelopeHint">Envelope kholne ke liye seal par tap karo</p>
+      </div>
+
+      <!-- Letter Message Reveal -->
+      <article class="revealed-letter" id="revealedLetter" aria-live="polite">
+        <div class="letter-border">
+          <div class="letter-header-decor">♡ ✦ ♡</div>
+          <h3 class="letter-salutation">Hey Payal,</h3>
+          <p class="letter-body">
+            Waise toh kehne ko kuch khaas nahi hai, bas kabhi kabhi tumse baat karke din thoda better ho jaata hai.
+            Tumhari baatein aur woh random si smile... sach mein achhi lagti hain. Toh bas, socha tumhe yaad dila doon
+            ki tum special ho. Aur haan, ye chhota sa surprise sirf tumhare liye hai. ♡<br><br>
+            <em>P.S. Devi jiii, pranam swikar karen. Hamesha ashirwad banaye rakhna. 🙏✨</em>
+          </p>
+          <p class="letter-signoff">Hamesha tumhare saath,<br><em>Subham ♡</em></p>
+        </div>
+      </article>
+    </section>
+
+    <!-- =========================================================================
+         SCREEN 4: LITTLE MEMORIES
+         ========================================================================= -->
+    <section class="screen-section screen-memories" id="memoriesSection">
+      <div class="section-header">
+        <span class="section-tag">Chhoti yaadein</span>
+        <h2 class="section-title">Pyare Se Pal ♡</h2>
+        <p class="section-desc">Woh shaamein, chai ki baatein aur meethi baatcheet</p>
+      </div>
+
+      <div class="gallery-track">
+        <!-- Memory Card 1 -->
+        <figure class="memory-card">
+          <div class="photo-frame">
+            <img src="assets/images/memory-1.svg" alt="Gulabi shaam ka aasmaan aur naram baadal" loading="lazy">
+          </div>
+          <figcaption class="card-caption">
+            <h4>Gulabi Shaam Aur Sukoon</h4>
+            <p>Jab shaam thodi shaant hoti hai aur baaton ka silsila shuru hota hai.</p>
+          </figcaption>
+        </figure>
+
+        <!-- Memory Card 2 -->
+        <figure class="memory-card">
+          <div class="photo-frame">
+            <img src="assets/images/memory-2.svg" alt="Coffee cup with heart latte art" loading="lazy">
+          </div>
+          <figcaption class="card-caption">
+            <h4>Chai, Coffee Aur Baatein</h4>
+            <p>Har woh chhota sa conversation jo bina kisi wajah ke bhi din bana deta hai.</p>
+          </figcaption>
+        </figure>
+
+        <!-- Memory Card 3 -->
+        <figure class="memory-card">
+          <div class="photo-frame">
+            <img src="assets/images/memory-3.svg" alt="Taaron bhari raat aur chamakta chaand" loading="lazy">
+          </div>
+          <figcaption class="card-caption">
+            <h4>Taaron Bhari Raatein</h4>
+            <p>Raat ke sannate mein woh random thoughts... bas aise hi muskurate rehna.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SCREEN 5: A LITTLE SURPRISE
+         ========================================================================= -->
+    <section class="screen-section screen-surprise" id="surpriseSection">
+      <div class="section-header">
+        <span class="section-tag">Abhi ke liye ek gift</span>
+        <h2 class="section-title">A Little Surprise ♡</h2>
+        <p class="section-desc">Jab bhi mood thoda off ho, bas ek baar tap kar lena</p>
+      </div>
+
+      <div class="surprise-box">
+        <button id="surpriseGeneratorBtn" class="primary-btn surprise-btn" aria-label="Surprise message unlock karein">
+          <span class="btn-sparkle" aria-hidden="true">✨</span>
+          <span>Ek Secret Message Khologe?</span>
+          <span class="btn-sparkle" aria-hidden="true">✨</span>
+        </button>
+
+        <!-- Dynamic Message Box -->
+        <div class="surprise-message-card" id="surpriseCard" aria-live="polite">
+          <div class="card-star" aria-hidden="true">✦</div>
+          <p id="surpriseText" class="surprise-text">Button dabao aur dekho aaj tumhare liye kya nikla hai!</p>
+          <span class="surprise-counter" id="surpriseCounter">Tip: Jitni baar chaho tap kar sakti ho!</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SCREEN 6: GOODBYE
+         ========================================================================= -->
+    <section class="screen-section screen-goodbye" id="goodbyeSection">
+      <div class="goodbye-box">
+        <div class="goodbye-heart-crest" aria-hidden="true">♡</div>
+        <h2 class="goodbye-title">Achha, ab jaane deta hoon... apna khayal rakhna. ♡</h2>
+        <p class="goodbye-msg">Aur haan, kabhi kabhi mujhe bhi yaad kar lena.</p>
+        <p class="goodbye-sub">Phir milenge ek aur chhote se surprise ke saath!</p>
+
+        <button id="backToTopBtn" class="primary-btn return-btn" aria-label="Wapas shuruat par jaayein">
+          Wapas shuruat par chalein ↑
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Note Modal Dialog (reveals complete note message on tap) -->
+  <div class="note-modal-overlay" id="noteModal" role="dialog" aria-modal="true" aria-hidden="true"
+    aria-labelledby="modalTitle">
+    <div class="note-modal-card">
+      <div class="modal-tape" aria-hidden="true"></div>
+      <button class="modal-close" id="modalCloseBtn" aria-label="Band karein">×</button>
+      <h3 id="modalTitle" class="modal-note-title">Note</h3>
+      <p id="modalBody" class="modal-note-body">Pura note yahan aayega...</p>
+      <div class="modal-footer-heart">♥</div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
