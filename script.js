@@ -60,15 +60,18 @@
     "Waise, tumhari entry ka intezaar tha.",
     "Tumhare liye kuch chhota sa surprise hai...",
     "Bas aise hi hamesha muskurati rehna ♡",
-    "Thoda sa blush kar lena, ye note sirf tumhare liye hai :)"
+    "Thoda sa blush kar lena, ye sirf tumhare liye hai :)"
   ];
   let phraseIdx = 0;
   let charIdx = 0;
   let isDeleting = false;
+  let typewriterTimeout = null;
 
   function runTypewriter() {
-    if (reducedMotion || !typewriterContent) {
-      if (typewriterContent) typewriterContent.textContent = introPhrases[0];
+    if (!typewriterContent) return;
+
+    if (reducedMotion) {
+      typewriterContent.textContent = introPhrases[0];
       return;
     }
 
@@ -79,24 +82,40 @@
       charIdx++;
       if (charIdx === currentPhrase.length) {
         isDeleting = true;
-        setTimeout(runTypewriter, 2600); // Pause on completed sentence
+        typewriterTimeout = setTimeout(runTypewriter, 2600); // Pause on completed sentence
         return;
       }
-      setTimeout(runTypewriter, 75 + Math.random() * 30);
+      typewriterTimeout = setTimeout(runTypewriter, 75 + Math.random() * 30);
     } else {
       typewriterContent.textContent = currentPhrase.substring(0, charIdx - 1);
       charIdx--;
       if (charIdx === 0) {
         isDeleting = false;
         phraseIdx = (phraseIdx + 1) % introPhrases.length;
-        setTimeout(runTypewriter, 400);
+        typewriterTimeout = setTimeout(runTypewriter, 400);
         return;
       }
-      setTimeout(runTypewriter, 40);
+      typewriterTimeout = setTimeout(runTypewriter, 40);
     }
   }
 
-  runTypewriter();
+  function startTypewriter() {
+    stopTypewriter();
+    phraseIdx = 0;
+    charIdx = 0;
+    isDeleting = false;
+    runTypewriter();
+  }
+
+  function stopTypewriter() {
+    if (typewriterTimeout) {
+      clearTimeout(typewriterTimeout);
+      typewriterTimeout = null;
+    }
+  }
+
+  // Start initial typewriter
+  startTypewriter();
 
   /* -------------------------------------------------------------------------
      3. Cinematic Single-Page Screen Switching Navigation
@@ -167,6 +186,14 @@
       currentScreenIndex = targetIndex;
 
       // Special screen triggers
+      if (targetIndex === 0) {
+        // Welcome screen: restart typewriter animation
+        startTypewriter();
+      } else {
+        // Stop typewriter when leaving Welcome screen to save CPU and avoid intervals
+        stopTypewriter();
+      }
+
       if (targetIndex === 5) {
         // Goodbye screen: reveal teasing note after entrance
         const teasingNote = document.getElementById("teasingNote");
@@ -410,9 +437,8 @@
   }
 
   /* -------------------------------------------------------------------------
-     7. Flying Paper Airplane (Every 28-36 seconds)
+     7. Flying Paper Airplane Periodic Ambient Flight (Every 28-36 seconds)
      ------------------------------------------------------------------------- */
-  const airplaneContainer = document.getElementById("airplaneContainer");
   function launchAirplane() {
     if (reducedMotion || !airplaneContainer) return;
 
