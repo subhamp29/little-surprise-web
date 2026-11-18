@@ -376,8 +376,9 @@
       if (now - lastSparkleTime > 110 && Math.random() > 0.7) {
         lastSparkleTime = now;
         const sparkle = document.createElement("span");
-        sparkle.className = "sparkle";
-        sparkle.textContent = Math.random() > 0.5 ? "✦" : "✧";
+        const isBlueSparkle = Math.random() > 0.45;
+        sparkle.className = isBlueSparkle ? "sparkle sparkle-blue" : "sparkle";
+        sparkle.textContent = Math.random() > 0.5 ? "✦" : (isBlueSparkle ? "★" : "✧");
         sparkle.style.left = `${e.clientX}px`;
         sparkle.style.top = `${e.clientY}px`;
 

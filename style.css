@@ -11,6 +11,9 @@
   --color-lavender: #d9bde9;
   --color-peach: #ffe6dd;
   --color-cream: #fff9f6;
+  --color-sky-blue: #d6ecff;
+  --color-accent-blue: #8ec5ff;
+  --color-soft-blue: #b9dcff;
   --color-text-deep: #683854;
   --color-text-muted: #8e5a77;
   --color-accent-pink: #ff8fb7;
@@ -62,7 +65,7 @@ body {
   z-index: -1;
   pointer-events: none;
   overflow: hidden;
-  background: linear-gradient(150deg, #ffd7e6 0%, #ecd4f7 50%, #ffe8d9 100%);
+  background: linear-gradient(150deg, #ffd7e6 0%, #e2dcfa 35%, #d6ecff 70%, #ffe8d9 100%);
   isolation: isolate;
 }
 
@@ -216,6 +219,11 @@ body {
   z-index: 9999;
   font-size: 15px;
   animation: sparklePop 0.75s ease-out forwards;
+}
+
+.sparkle.sparkle-blue {
+  color: #e6f3ff;
+  text-shadow: 0 0 10px #6eb8ff, 0 0 18px #a8d5ff;
 }
 
 @keyframes sparklePop {
@@ -486,7 +494,7 @@ body {
 .notes-cluster {
   position: relative;
   width: 100%;
-  height: 740px;
+  height: 840px;
   margin-top: 10px;
 }
 
@@ -611,14 +619,13 @@ body {
 
 /* Note 9: Special Pastel-Blue Water Reminder Note */
 .note-water {
-  top: 625px;
-  left: 50%;
-  --rot: 1deg;
-  transform: translateX(-50%) rotate(var(--rot));
+  top: 615px;
+  left: 4%;
+  --rot: -3deg;
+  transform: rotate(var(--rot));
   background: linear-gradient(135deg, rgba(230, 244, 255, 0.95), rgba(240, 248, 255, 0.92));
   border: 1px solid rgba(180, 220, 255, 0.8);
   box-shadow: 0 8px 24px rgba(100, 160, 210, 0.22);
-  animation-name: noteFloatWater;
   animation-delay: -2s;
 }
 
@@ -643,9 +650,44 @@ body {
   color: #3b6080;
 }
 
-@keyframes noteFloatWater {
-  0%, 100% { transform: translateX(-50%) translateY(0) rotate(1deg); }
-  50% { transform: translateX(-50%) translateY(-7px) rotate(1deg); }
+/* Note 10: Special Blue Favorite Note for Payal */
+.note-blue {
+  top: 715px;
+  right: 4%;
+  --rot: 4deg;
+  transform: rotate(var(--rot));
+  background: linear-gradient(135deg, #d6ecff 0%, #b9dcff 60%, #eef7ff 100%);
+  border: 1px solid rgba(142, 197, 255, 0.9);
+  box-shadow: 0 8px 26px rgba(100, 150, 220, 0.25);
+  animation-delay: -3.2s;
+}
+
+.note-blue:hover,
+.note-blue:focus-visible {
+  outline: 2px solid #62b1ff;
+  background: #ebf5ff;
+  box-shadow: 0 12px 32px rgba(80, 140, 215, 0.35);
+}
+
+.blue-tape {
+  background: rgba(185, 220, 255, 0.8);
+}
+
+.blue-star-icon {
+  font-size: 16px;
+  margin-bottom: 4px;
+  filter: drop-shadow(0 0 4px rgba(90, 165, 255, 0.6));
+  animation: starPulse 2.5s ease-in-out infinite alternate;
+}
+
+.blue-snippet {
+  color: #2b547e;
+  font-weight: 500;
+}
+
+@keyframes starPulse {
+  0% { transform: scale(1); opacity: 0.85; }
+  100% { transform: scale(1.2); opacity: 1; }
 }
 
 @keyframes dropRipple {
@@ -949,12 +991,34 @@ body {
     transform: scale(1) translateY(0);
   }
 }
+
+.surprise-stars-decor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.blue-glow-star {
+  color: #6fbaff;
+  font-size: 17px;
+  filter: drop-shadow(0 0 6px rgba(110, 185, 255, 0.8));
+  animation: blueStarGlow 2s ease-in-out infinite alternate;
+}
+
+.star-2 {
+  animation-delay: -1s;
+}
+
+@keyframes blueStarGlow {
+  0% { transform: scale(0.9) rotate(0deg); opacity: 0.7; }
+  100% { transform: scale(1.25) rotate(15deg); opacity: 1; }
 }
 
 .card-star {
   color: #ff90b5;
   font-size: 18px;
-  margin-bottom: 8px;
 }
 
 .surprise-text {

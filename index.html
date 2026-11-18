@@ -163,6 +163,16 @@
           <p class="note-snippet water-snippet">Paani toh nahi piya hoga aapne... 👀💧</p>
           <span class="note-tap-hint">tap karke padho</span>
         </article>
+
+        <!-- Note 10: Special Blue Favorite Note for Payal -->
+        <article class="paper-note note-blue" tabindex="0" role="button" data-title="Aapka Favourite Colour 💙"
+          data-message="Aapka favourite colour blue hai na? Isliye socha, is chhote se surprise mein thoda blue bhi add kar doon... aakhir aapki pasand ka bhi toh khayal rakhna hai. 💙"
+          aria-haspopup="dialog" aria-label="Note: Aapka favourite colour blue hai na?">
+          <div class="tape-strip blue-tape" aria-hidden="true"></div>
+          <div class="blue-star-icon" aria-hidden="true">✨💙</div>
+          <p class="note-snippet blue-snippet">Aapka favourite colour blue hai na? 💙</p>
+          <span class="note-tap-hint">tap karke padho</span>
+        </article>
       </div>
     </section>
 
@@ -277,7 +287,11 @@
 
         <!-- Dynamic Message Box -->
         <div class="surprise-message-card" id="surpriseCard" aria-live="polite">
-          <div class="card-star" aria-hidden="true">✦</div>
+          <div class="surprise-stars-decor" aria-hidden="true">
+            <span class="blue-glow-star star-1">✦</span>
+            <span class="card-star">✧</span>
+            <span class="blue-glow-star star-2">✦</span>
+          </div>
           <p id="surpriseText" class="surprise-text">Button dabao aur dekho aaj tumhare liye kya nikla hai!</p>
           <span class="surprise-counter" id="surpriseCounter">Tip: Jitni baar chaho tap kar sakti ho!</span>
         </div>
