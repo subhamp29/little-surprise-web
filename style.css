@@ -430,10 +430,47 @@ body {
 }
 
 .main-title {
-  font-size: clamp(32px, 9vw, 44px);
+  font-size: clamp(28px, 8vw, 42px);
   font-weight: 400;
   color: var(--color-text-deep);
-  line-height: 1.2;
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+.highlight-payal {
+  color: #a34275;
+  font-weight: 600;
+  font-style: italic;
+  display: inline-block;
+  text-shadow: 0 0 12px rgba(255, 143, 185, 0.4);
+}
+
+.devi-badge {
+  display: inline-block;
+  font-size: clamp(16px, 4.6vw, 22px);
+  font-family: var(--font-handwriting);
+  font-weight: 600;
+  color: #2b70b5;
+  background: linear-gradient(135deg, rgba(214, 236, 255, 0.85), rgba(240, 248, 255, 0.95));
+  border: 1px solid rgba(142, 197, 255, 0.8);
+  border-radius: 20px;
+  padding: 2px 10px;
+  margin-left: 4px;
+  vertical-align: middle;
+  box-shadow: 0 3px 12px rgba(110, 175, 240, 0.22);
+  white-space: nowrap;
+  animation: deviBadgeFloat 3s ease-in-out infinite alternate;
+}
+
+@keyframes deviBadgeFloat {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    filter: drop-shadow(0 0 4px rgba(110, 185, 255, 0.3));
+  }
+  100% {
+    transform: translateY(-4px) rotate(1.5deg);
+    filter: drop-shadow(0 0 8px rgba(110, 185, 255, 0.7));
+  }
 }
 
 .friend-name {
