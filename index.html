@@ -312,12 +312,6 @@
       </div>
 
       <div class="surprise-box">
-        <button id="surpriseGeneratorBtn" class="primary-btn surprise-btn" aria-label="Surprise message unlock karein">
-          <span class="btn-sparkle" aria-hidden="true">✨</span>
-          <span>Ek Secret Message Khologe?</span>
-          <span class="btn-sparkle" aria-hidden="true">✨</span>
-        </button>
-
         <!-- Dynamic Message Box -->
         <div class="surprise-message-card" id="surpriseCard" aria-live="polite">
           <div class="surprise-stars-decor" aria-hidden="true">
@@ -328,12 +322,20 @@
           <p id="surpriseText" class="surprise-text">Button dabao aur dekho aaj tumhare liye kya nikla hai!</p>
           <span class="surprise-counter" id="surpriseCounter">Tip: Jitni baar chaho tap kar sakti ho!</span>
         </div>
-      </div>
 
-      <div class="screen-nav-wrap">
-        <button id="surpriseToGoodbyeBtn" class="primary-btn nav-next-btn surprise-next-flow" aria-label="Aage chalein">
-          Aakhri baat <span class="heart-pulse">♡</span>
+        <!-- Surprise Reveal Button (Below Surprise Message) -->
+        <button id="surpriseGeneratorBtn" class="primary-btn surprise-btn" aria-label="Surprise message unlock karein">
+          <span class="btn-sparkle" aria-hidden="true">✨</span>
+          <span>Ek Secret Message Khologe?</span>
+          <span class="btn-sparkle" aria-hidden="true">✨</span>
         </button>
+
+        <!-- Next Page Navigation Button -->
+        <div class="screen-nav-wrap surprise-nav-wrap">
+          <button id="surpriseToGoodbyeBtn" class="primary-btn nav-next-btn surprise-next-btn" aria-label="Aage goodbye section par chalein">
+            Agla page dekhein → <span class="heart-pulse">♡</span>
+          </button>
+        </div>
       </div>
     </section>
 
