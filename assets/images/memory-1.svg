@@ -1,37 +1,62 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
   <defs>
-    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="skyGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#ffd5e5"/>
       <stop offset="50%" stop-color="#e8d3f7"/>
       <stop offset="100%" stop-color="#ffe9d6"/>
     </linearGradient>
-    <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#fff8db" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#ffb6c1" stop-opacity="0"/>
-    </radialGradient>
-    <filter id="softGlow">
+    <filter id="softGlow1">
       <feGaussianBlur stdDeviation="3" result="blur"/>
       <feComposite in="SourceGraphic" in2="blur" operator="over"/>
     </filter>
   </defs>
-  <rect width="400" height="300" rx="16" fill="url(#skyGrad)"/>
-  <circle cx="280" cy="90" r="45" fill="url(#sunGlow)"/>
-  <!-- Gentle rolling hills -->
+  <rect width="400" height="300" rx="16" fill="url(#skyGrad1)"/>
+  <circle cx="280" cy="90" r="45" fill="#fff8db" opacity="0.9"/>
   <path d="M 0,220 Q 90,180 200,210 T 400,195 L 400,300 L 0,300 Z" fill="#d8b2db" opacity="0.45"/>
   <path d="M 0,240 Q 120,200 240,230 T 400,220 L 400,300 L 0,300 Z" fill="#e7a5c2" opacity="0.6"/>
-  <!-- Floating clouds -->
-  <g fill="#ffffff" opacity="0.75" filter="url(#softGlow)">
-    <ellipse cx="110" cy="95" rx="35" ry="16"/>
-    <ellipse cx="130" cy="88" rx="25" ry="20"/>
-    <ellipse cx="90" cy="98" rx="20" ry="12"/>
-    <ellipse cx="320" cy="140" rx="40" ry="16"/>
-    <ellipse cx="340" cy="132" rx="24" ry="18"/>
+
+  <!-- Chat bubble: Me (left) -->
+  <g fill="#ffffff" opacity="0.9" filter="url(#softGlow1)">
+    <path d="M 20,80 Q 30,80 30,70 L 30,50 Q 30,42 38,42 L 70,42 Q 78,42 78,50 L 78,70 Q 78,80 70,80 Z"/>
+    <path d="M 20,80 Q 30,80 30,70 L 30,80 Q 30,88 38,88 L 70,88 Q 78,88 78,80 Z"/>
   </g>
-  <!-- Tiny stars -->
+  <text x="42" y="55" font-family="Caveat, cursive" font-size="11" fill="#5a3e5e">Hii! Kaisi ho? 😊</text>
+
+  <!-- Chat bubble: Them (right) -->
+  <g fill="#ffe0f0" opacity="0.95" filter="url(#softGlow1)">
+    <path d="M 330,95 Q 340,95 340,85 L 340,65 Q 340,57 332,57 L 300,57 Q 292,57 292,65 L 292,85 Q 292,95 300,95 Z"/>
+    <path d="M 330,95 Q 340,95 340,85 L 340,95 Q 340,103 332,103 L 300,103 Q 292,103 292,95 Z"/>
+  </g>
+  <text x="295" y="72" font-family="Caveat, cursive" font-size="11" fill="#5a3e5e">Aaj ka din kaisa tha?</text>
+
+  <!-- Chat bubble: Me (left) -->
+  <g fill="#ffffff" opacity="0.9" filter="url(#softGlow1)">
+    <path d="M 20,110 Q 30,110 30,100 L 30,80 Q 30,72 38,72 L 70,72 Q 78,72 78,80 L 78,100 Q 78,110 70,110 Z"/>
+    <path d="M 20,110 Q 30,110 30,100 L 30,110 Q 30,118 38,118 L 70,118 Q 78,118 78,110 Z"/>
+  </g>
+  <text x="42" y="87" font-family="Caveat, cursive" font-size="11" fill="#5a3e5e">Achha tha, tum batao!</text>
+
+  <!-- Chat bubble: Them (right) -->
+  <g fill="#ffe0f0" opacity="0.95" filter="url(#softGlow1)">
+    <path d="M 330,125 Q 340,125 340,115 L 340,95 Q 340,87 332,87 L 300,87 Q 292,87 292,95 L 292,115 Q 292,125 300,125 Z"/>
+    <path d="M 330,125 Q 340,125 340,115 L 340,125 Q 340,133 332,133 L 300,133 Q 292,133 292,125 Z"/>
+  </g>
+  <text x="295" y="104" font-family="Caveat, cursive" font-size="11" fill="#5a3e5e">Mera bhi theek tha!</text>
+
+  <!-- Chat bubble: Me (left) -->
+  <g fill="#ffffff" opacity="0.9" filter="url(#softGlow1)">
+    <path d="M 20,140 Q 30,140 30,130 L 30,110 Q 30,102 38,102 L 90,102 Q 98,102 98,110 L 98,130 Q 98,140 90,140 Z"/>
+    <path d="M 20,140 Q 30,140 30,130 L 30,140 Q 30,148 38,148 L 90,148 Q 98,148 98,140 Z"/>
+  </g>
+  <text x="42" y="119" font-family="Caveat, cursive" font-size="11" fill="#5a3e5e">Chalo, kuch aur baatein karte hain 😄</text>
+
+  <!-- Label at bottom -->
+  <text x="200" y="250" font-family="Caveat, cursive" font-size="16" fill="#4a2e4a" text-anchor="middle" font-weight="bold">Random si baatein aur hasi-mazaak 😊</text>
+
+  <!-- Tiny sparkles -->
   <g fill="#ffffff" opacity="0.9">
-    <path d="M70,50 Q70,58 78,58 Q70,58 70,66 Q70,58 62,58 Q70,58 70,50 Z"/>
-    <path d="M220,70 Q220,76 226,76 Q220,76 220,82 Q220,76 214,76 Q220,76 220,70 Z"/>
-    <path d="M350,60 Q350,65 355,65 Q350,65 350,70 Q350,65 345,65 Q350,65 350,60 Z"/>
+    <path d="M70,40 Q70,46 76,46 Q70,46 70,52 Q70,46 64,46 Q70,46 70,40 Z"/>
+    <path d="M220,60 Q220,66 226,66 Q220,66 220,72 Q220,66 214,66 Q220,66 220,60 Z"/>
+    <path d="M350,50 Q350,55 355,55 Q350,55 350,60 Q350,55 345,55 Q350,55 350,50 Z"/>
   </g>
 </svg>
-

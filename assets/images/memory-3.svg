@@ -1,40 +1,70 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
   <defs>
-    <linearGradient id="nightPastel" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#403254"/>
-      <stop offset="50%" stop-color="#73577d"/>
-      <stop offset="100%" stop-color="#b58aa7"/>
+    <linearGradient id="skyGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffd5e5"/>
+      <stop offset="50%" stop-color="#e8d3f7"/>
+      <stop offset="100%" stop-color="#ffe9d6"/>
     </linearGradient>
-    <radialGradient id="moonGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#fff8db" stop-opacity="1"/>
-      <stop offset="50%" stop-color="#ffd5e5" stop-opacity="0.6"/>
-      <stop offset="100%" stop-color="#ffd5e5" stop-opacity="0"/>
-    </radialGradient>
+    <filter id="softGlow3">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
   </defs>
-  <rect width="400" height="300" rx="16" fill="url(#nightPastel)"/>
-  
-  <!-- Glowing Moon -->
-  <circle cx="200" cy="110" r="50" fill="url(#moonGlow)"/>
-  <circle cx="200" cy="110" r="32" fill="#fffef4"/>
+  <rect width="400" height="300" rx="16" fill="url(#skyGrad3)"/>
+  <circle cx="280" cy="90" r="40" fill="#fff8db" opacity="0.9"/>
+  <path d="M 0,230 Q 90,190 200,220 T 400,205 L 400,300 L 0,300 Z" fill="#d8b2db" opacity="0.45"/>
 
-  <!-- Star Constellations & Sparkles -->
-  <g fill="#ffffff">
-    <circle cx="90" cy="65" r="2" opacity="0.9"/>
-    <circle cx="120" cy="85" r="2.5" opacity="0.95"/>
-    <circle cx="150" cy="55" r="1.5" opacity="0.8"/>
-    <circle cx="270" cy="60" r="2" opacity="0.9"/>
-    <circle cx="310" cy="90" r="2.5" opacity="0.85"/>
-    <circle cx="290" cy="140" r="1.5" opacity="0.8"/>
-    <circle cx="80" cy="150" r="2" opacity="0.9"/>
-    <!-- Sparkle shapes -->
-    <path d="M120,85 L122,81 L126,85 L122,89 Z" opacity="0.6"/>
-    <path d="M280,75 Q280,82 287,82 Q280,82 280,89 Q280,82 273,82 Q280,82 280,75 Z" opacity="0.8"/>
-    <path d="M70,90 Q70,96 76,96 Q70,96 70,102 Q70,96 64,96 Q70,96 70,90 Z" opacity="0.75"/>
+  <!-- Chat bubble: Me (left) -->
+  <g fill="#ffffff" opacity="0.9" filter="url(#softGlow3)">
+    <path d="M 20,80 Q 30,80 30,70 L 30,50 Q 30,42 38,42 L 70,42 Q 78,42 78,50 L 78,70 Q 78,80 70,80 Z"/>
+    <path d="M 20,80 Q 30,80 30,70 L 30,80 Q 30,88 38,88 L 70,88 Q 78,88 78,80 Z"/>
   </g>
-  <path d="M90,65 L120,85 L150,55" fill="none" stroke="#fff" stroke-dasharray="2,3" stroke-width="0.8" opacity="0.5"/>
+  <text x="42" y="55" font-family="Caveat, cursive" font-size="11" fill="#5a3e5e">Ek baat bataun? 😂</text>
 
-  <!-- Dreamy mountain silhouettes -->
-  <path d="M 0,240 Q 90,195 190,230 T 400,210 L 400,300 L 0,300 Z" fill="#2c223c" opacity="0.75"/>
-  <path d="M 0,260 Q 150,220 280,250 T 400,240 L 400,300 L 0,300 Z" fill="#1e1628" opacity="0.9"/>
+  <!-- Chat bubble: Them (right) -->
+  <g fill="#ffe0f0" opacity="0.95" filter="url(#softGlow3)">
+    <path d="M 330,95 Q 340,95 340,85 L 340,65 Q 340,57 332,57 L 300,57 Q 292,57 292,65 L 292,85 Q 292,95 300,95 Z"/>
+    <path d="M 330,95 Q 340,95 340,85 L 340,95 Q 340,103 332,103 L 300,103 Q 292,103 292,95 Z"/>
+  </g>
+  <text x="295" y="74" font-family="Caveat, cursive" font-size="11" fill="#5a3e5e">Haan bolo!</text>
+
+  <!-- Chat bubble: Me (left) -->
+  <g fill="#ffffff" opacity="0.9" filter="url(#softGlow3)">
+    <path d="M 20,110 Q 30,110 30,100 L 30,80 Q 30,72 38,72 L 60,72 Q 68,72 68,80 L 68,100 Q 68,110 60,110 Z"/>
+    <path d="M 20,110 Q 30,110 30,100 L 30,110 Q 30,118 38,118 L 60,118 Q 68,118 68,110 Z"/>
+  </g>
+  <text x="42" y="89" font-family="Caveat, cursive" font-size="11" fill="#5a3e5e">Tum bhi na 😂</text>
+
+  <!-- Chat bubble: Them (right) -->
+  <g fill="#ffe0f0" opacity="0.95" filter="url(#softGlow3)">
+    <path d="M 330,125 Q 340,125 340,115 L 340,105 Q 340,97 332,97 L 300,97 Q 292,97 292,105 L 292,115 Q 292,125 300,125 Z"/>
+    <path d="M 330,125 Q 340,125 340,115 L 340,125 Q 340,133 332,133 L 300,133 Q 292,133 292,125 Z"/>
+  </g>
+  <text x="295" y="116" font-family="Caveat, cursive" font-size="11" fill="#5a3e5e">Achha ji, ab maine kya kiya?</text>
+
+  <!-- Chat bubble: Me (left) -->
+  <g fill="#ffffff" opacity="0.9" filter="url(#softGlow3)">
+    <path d="M 20,140 Q 30,140 30,130 L 30,120 Q 30,112 38,112 L 70,112 Q 78,112 78,120 L 78,140 Q 78,140 70,140 Z"/>
+    <path d="M 20,140 Q 30,140 30,130 L 30,140 Q 30,148 38,148 L 70,148 Q 78,148 78,140 Z"/>
+  </g>
+  <text x="42" y="131" font-family="Caveat, cursive" font-size="11" fill="#5a3e5e">Kuch nahi, bas aise hi 😂</text>
+
+  <!-- Chat bubble: Them (right) -->
+  <g fill="#ffe0f0" opacity="0.95" filter="url(#softGlow3)">
+    <path d="M 330,155 Q 340,155 340,145 L 340,135 Q 340,127 332,127 L 310,127 Q 302,127 302,135 L 302,155 Q 302,155 310,155 Z"/>
+    <path d="M 330,155 Q 340,155 340,145 L 340,155 Q 340,163 332,163 L 310,163 Q 302,163 302,155 Z"/>
+  </g>
+  <text x="307" y="146" font-family="Caveat, cursive" font-size="11" fill="#5a3e5e">Hahaha! 😂</text>
+
+  <!-- Label at bottom -->
+  <text x="200" y="250" font-family="Caveat, cursive" font-size="16" fill="#4a2e4a" text-anchor="middle" font-weight="bold">Random baatein aur hasi-mazaak 😄</text>
+
+  <!-- Tiny sparkles -->
+  <g fill="#ffffff" opacity="0.9">
+    <path d="M70,40 Q70,46 76,46 Q70,46 70,52 Q70,46 64,46 Q70,46 70,40 Z"/>
+    <path d="M220,60 Q220,66 226,66 Q220,66 220,72 Q220,66 214,66 Q220,66 220,60 Z"/>
+    <path d="M350,50 Q350,55 355,55 Q350,55 350,60 Q350,55 345,55 Q350,55 350,50 Z"/>
+    <path d="M40,100 Q40,106 46,106 Q40,106 40,112 Q40,106 34,106 Q40,106 40,100 Z"/>
+    <path d="M360,120 Q360,126 366,126 Q360,126 360,132 Q360,126 354,126 Q360,126 360,120 Z"/>
+  </g>
 </svg>
-

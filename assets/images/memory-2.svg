@@ -1,46 +1,68 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
   <defs>
-    <linearGradient id="cupGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="skyGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#fff0f5"/>
-      <stop offset="100%" stop-color="#fbd3e3"/>
-    </linearGradient>
-    <linearGradient id="bgWarm" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#fcedeb"/>
       <stop offset="50%" stop-color="#fbe0ec"/>
       <stop offset="100%" stop-color="#eed8f5"/>
     </linearGradient>
+    <filter id="softGlow2">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
   </defs>
-  <rect width="400" height="300" rx="16" fill="url(#bgWarm)"/>
-  
-  <!-- Table surface -->
-  <path d="M 0,230 Q 200,210 400,230 L 400,300 L 0,300 Z" fill="#edd6e2" opacity="0.7"/>
+  <rect width="400" height="300" rx="16" fill="url(#skyGrad2)"/>
+  <circle cx="280" cy="90" r="40" fill="#fff8db" opacity="0.9"/>
+  <path d="M 0,230 Q 90,190 200,220 T 400,205 L 400,300 L 0,300 Z" fill="#edd6e2" opacity="0.6"/>
 
-  <!-- Saucer -->
-  <ellipse cx="200" cy="225" rx="65" ry="14" fill="#ffffff" opacity="0.8"/>
-  <ellipse cx="200" cy="223" rx="55" ry="10" fill="#f8c8dc" opacity="0.5"/>
-
-  <!-- Coffee Cup -->
-  <path d="M 160,150 Q 160,215 200,215 Q 240,215 240,150 Z" fill="url(#cupGrad)" stroke="#eed5e1" stroke-width="2"/>
-  
-  <!-- Handle -->
-  <path d="M 235,160 Q 265,160 260,185 Q 255,200 235,198" fill="none" stroke="#fbc5db" stroke-width="6" stroke-linecap="round"/>
-
-  <!-- Latte Art Heart -->
-  <ellipse cx="200" cy="155" rx="36" ry="12" fill="#c99c82"/>
-  <ellipse cx="200" cy="155" rx="34" ry="10" fill="#dfbba5"/>
-  <path d="M200,161 C196,155 190,152 193,149 C196,146 200,150 200,153 C200,150 204,146 207,149 C210,152 204,155 200,161 Z" fill="#ffffff" opacity="0.9"/>
-
-  <!-- Steaming Hearts -->
-  <g fill="none" stroke="#e8a8c4" stroke-width="2" stroke-linecap="round" opacity="0.75">
-    <path d="M 190,135 Q 185,115 192,100" />
-    <path d="M 210,130 Q 215,110 208,95" />
+  <!-- Chat bubble: Them (right) - checking -->
+  <g fill="#ffe0f0" opacity="0.95" filter="url(#softGlow2)">
+    <path d="M 330,90 Q 340,90 340,80 L 340,60 Q 340,52 332,52 L 300,52 Q 292,52 292,60 L 292,80 Q 292,90 300,90 Z"/>
+    <path d="M 330,90 Q 340,90 340,80 L 340,90 Q 340,98 332,98 L 300,98 Q 292,98 292,90 Z"/>
   </g>
-  <path d="M200,85 C197,80 192,78 194,75 C197,72 200,76 200,78 C200,76 203,72 206,75 C208,78 203,80 200,85 Z" fill="#f3a7c6" opacity="0.7"/>
+  <text x="295" y="69" font-family="Caveat, cursive" font-size="11" fill="#5a3e5e">Ab tabiyat kaisi hai?</text>
 
-  <!-- Gentle sparkles around -->
-  <g fill="#fff" opacity="0.8">
-    <path d="M110,110 Q110,116 116,116 Q110,116 110,122 Q110,116 104,116 Q110,116 110,110 Z"/>
-    <path d="M290,120 Q290,125 295,125 Q290,125 290,130 Q290,125 285,125 Q290,125 290,120 Z"/>
+  <!-- Chat bubble: Me (left) -->
+  <g fill="#ffffff" opacity="0.9" filter="url(#softGlow2)">
+    <path d="M 20,110 Q 30,110 30,100 L 30,80 Q 30,72 38,72 L 70,72 Q 78,72 78,80 L 78,100 Q 78,110 70,110 Z"/>
+    <path d="M 20,110 Q 30,110 30,100 L 30,110 Q 30,118 38,118 L 70,118 Q 78,118 78,110 Z"/>
+  </g>
+  <text x="42" y="87" font-family="Caveat, cursive" font-size="11" fill="#5a3e5e">Thoda better hoon.</text>
+
+  <!-- Chat bubble: Them (right) - asking medicine -->
+  <g fill="#ffe0f0" opacity="0.95" filter="url(#softGlow2)">
+    <path d="M 330,130 Q 340,130 340,120 L 340,100 Q 340,92 332,92 L 300,92 Q 292,92 292,100 L 292,120 Q 292,130 300,130 Z"/>
+    <path d="M 330,130 Q 340,130 340,120 L 340,130 Q 340,138 332,138 L 300,138 Q 292,138 292,130 Z"/>
+  </g>
+  <text x="295" y="111" font-family="Caveat, cursive" font-size="11" fill="#5a3e5e">Medicine li?</text>
+
+  <!-- Chat bubble: Me (left) -->
+  <g fill="#ffffff" opacity="0.9" filter="url(#softGlow2)">
+    <path d="M 20,150 Q 30,150 30,140 L 30,120 Q 30,112 38,112 L 60,112 Q 68,112 68,120 L 68,140 Q 68,150 60,150 Z"/>
+    <path d="M 20,150 Q 30,150 30,140 L 30,150 Q 30,158 38,158 L 60,158 Q 68,158 68,150 Z"/>
+  </g>
+  <text x="42" y="129" font-family="Caveat, cursive" font-size="11" fill="#5a3e5e">Haan, le li.</text>
+
+  <!-- Chat bubble: Them (right) - rest -->
+  <g fill="#ffe0f0" opacity="0.95" filter="url(#softGlow2)">
+    <path d="M 330,170 Q 340,170 340,160 L 340,140 Q 340,132 332,132 L 300,132 Q 292,132 292,140 L 292,160 Q 292,170 300,170 Z"/>
+    <path d="M 330,170 Q 340,170 340,160 L 340,170 Q 340,178 332,178 L 300,178 Q 292,178 292,170 Z"/>
+  </g>
+  <text x="295" y="151" font-family="Caveat, cursive" font-size="11" fill="#5a3e5e">Achhe se rest karna, okay?</text>
+
+  <!-- Chat bubble: Me (left) -->
+  <g fill="#ffffff" opacity="0.9" filter="url(#softGlow2)">
+    <path d="M 20,190 Q 30,190 30,180 L 30,160 Q 30,152 38,152 L 80,152 Q 88,152 88,160 L 88,180 Q 88,190 80,190 Z"/>
+    <path d="M 20,190 Q 30,190 30,180 L 30,190 Q 30,198 38,198 L 80,198 Q 88,198 88,190 Z"/>
+  </g>
+  <text x="42" y="171" font-family="Caveat, cursive" font-size="11" fill="#5a3e5e">Haan, tum bhi tension mat lo 😊</text>
+
+  <!-- Label at bottom -->
+  <text x="200" y="250" font-family="Caveat, cursive" font-size="16" fill="#4a2e4a" text-anchor="middle" font-weight="bold">Tumhara baar-baar haal poochhna 🥹</text>
+
+  <!-- Tiny care hearts -->
+  <g fill="#ffb6c1" opacity="0.7">
+    <path d="M90,140 Q90,146 96,146 Q90,146 90,152 Q90,146 84,146 Q90,146 90,140 Z" opacity="0.6"/>
+    <path d="M310,70 Q310,76 316,76 Q310,76 310,82 Q310,76 304,76 Q310,76 310,70 Z" opacity="0.5"/>
+    <path d="M110,170 Q110,176 116,176 Q110,176 110,182 Q110,176 104,176 Q110,176 110,170 Z" opacity="0.5"/>
   </g>
 </svg>
-

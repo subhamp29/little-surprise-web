@@ -57,10 +57,10 @@
      ------------------------------------------------------------------------- */
   const typewriterContent = document.querySelector("#typewriterIntro .tw-content");
   const introPhrases = [
-    "Waise, tumhari entry ka intezaar tha.",
+    "Waise, tumhari baaton ka intezaar hota hai.",
     "Tumhare liye kuch chhota sa surprise hai...",
     "Bas aise hi hamesha muskurati rehna ♡",
-    "Thoda sa blush kar lena, ye sirf tumhare liye hai :)"
+    "Thoda sa aaraam karo, tum achha kar rahe ho :)",
   ];
   let phraseIdx = 0;
   let charIdx = 0;
@@ -353,12 +353,12 @@
   const surpriseCounter = document.getElementById("surpriseCounter");
 
   const initialSurprises = [
-    "Devi jiii, pranam swikar karen. Hamesha ashirwad banaye rakhna. 🙏✨",
+    "Hamesha khush raho, muskurati raho! 🙏✨",
     "Itna toh banta hai, tum special jo ho. ♡",
     "Smile aa gayi? Toh mission successful!",
     "Bas aise hi hamesha muskurati rehna. ♡",
-    "Pata nahi kyun, par tumse baat karke lagta hai din ka sabse achha hissa yahi tha.",
-    "Ek secret bataun? Tumhari smile dekhkar kisi ka bhi din ban sakta hai :)",
+    "Tumse random baatein karna bhi apne aap mein ek alag entertainment hai! 😂",
+    "Ek baat toh hai, tumhari funny baatein kabhi-kabhi mood achha kar deti hain! 😄",
     "Thoda sa aaraam karo, deep breath lo... aur yaad rakhna you're doing great!"
   ];
 
@@ -415,7 +415,7 @@
             if (surpriseCard) {
               surpriseCard.classList.add("finished");
             }
-            surpriseText.innerHTML = "Bas surprises itne hii thee, maaf krna Devi Ji... aur kuch dimag mein aaya nahi. 😭😂";
+            surpriseText.innerHTML = "Bas surprises itne hii thee, maaf krna... aur kuch dimag mein aaya nahi. 😭😂";
 
             if (surpriseCounter) {
               surpriseCounter.textContent = "Saare surprises khatam ho gaye! ✨";
