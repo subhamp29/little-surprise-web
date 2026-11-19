@@ -1,57 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
   <defs>
-    <radialGradient id="bg1" cx="50%" cy="50%" r="70%">
-      <stop offset="0%" stop-color="#fff0f8"/>
-      <stop offset="100%" stop-color="#fce4f3"/>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffd5e5"/>
+      <stop offset="50%" stop-color="#e8d3f7"/>
+      <stop offset="100%" stop-color="#ffe9d6"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff8db" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ffb6c1" stop-opacity="0"/>
     </radialGradient>
-    <filter id="glow1">
-      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
-      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
     </filter>
   </defs>
-
-  <!-- Background -->
-  <rect width="400" height="300" fill="url(#bg1)" rx="0"/>
-
-  <!-- Floating hearts background -->
-  <text x="30" y="55" font-size="14" fill="#ffb3cc" opacity="0.5">♡</text>
-  <text x="355" y="80" font-size="10" fill="#c9b0e8" opacity="0.5">♡</text>
-  <text x="20" y="240" font-size="12" fill="#ffb3cc" opacity="0.4">♡</text>
-  <text x="370" y="250" font-size="16" fill="#c9b0e8" opacity="0.4">♡</text>
-  <text x="60" y="275" font-size="10" fill="#ffb3cc" opacity="0.3">♡</text>
-  <text x="330" y="30" font-size="12" fill="#f5a0c8" opacity="0.3">♡</text>
-
-  <!-- Phone body -->
-  <rect x="145" y="30" width="110" height="190" rx="18" ry="18" fill="#fff" stroke="#f0bfda" stroke-width="2.5" filter="url(#glow1)"/>
-  <!-- Phone notch -->
-  <rect x="175" y="38" width="50" height="8" rx="4" fill="#f0bfda" opacity="0.6"/>
-  <!-- Screen area -->
-  <rect x="153" y="52" width="94" height="155" rx="6" fill="#fff8fc"/>
-
-  <!-- Chat bubbles — received (left, pink) -->
-  <rect x="157" y="60" width="58" height="22" rx="10" fill="#ffd6ea"/>
-  <text x="163" y="75" font-size="9" fill="#9b4870" font-family="sans-serif">Hii! Kaisi ho? 😊</text>
-
-  <rect x="157" y="90" width="52" height="22" rx="10" fill="#ffd6ea"/>
-  <text x="163" y="105" font-size="9" fill="#9b4870" font-family="sans-serif">Aaj ka din kaisa tha?</text>
-
-  <!-- Chat bubbles — sent (right, lavender) -->
-  <rect x="186" y="120" width="55" height="22" rx="10" fill="#e8d5ff"/>
-  <text x="192" y="135" font-size="9" fill="#6b3fa0" font-family="sans-serif">Achha tha, tum batao!</text>
-
-  <!-- Received -->
-  <rect x="157" y="150" width="62" height="22" rx="10" fill="#ffd6ea"/>
-  <text x="163" y="165" font-size="9" fill="#9b4870" font-family="sans-serif">Mera bhi theek tha!</text>
-
-  <!-- Sent -->
-  <rect x="190" y="180" width="52" height="22" rx="10" fill="#e8d5ff"/>
-  <text x="196" y="195" font-size="9" fill="#6b3fa0" font-family="sans-serif">Chalo, kuch aur baatein karte hain 😄</text>
-
-  <!-- Tiny floating hearts near phone -->
-  <text x="270" y="100" font-size="20" fill="#f7a8c8" opacity="0.7" filter="url(#glow1)">♡</text>
-  <text x="110" y="130" font-size="16" fill="#c9b0e8" opacity="0.6">♡</text>
-  <text x="280" y="160" font-size="12" fill="#ffb3cc" opacity="0.5">♡</text>
-
-  <!-- Label at bottom -->
-  <text x="200" y="250" text-anchor="middle" font-size="14" fill="#c06090" font-family="'Georgia', serif" font-style="italic" opacity="0.9">Random si baatein aur hasi-mazaak 😊</text>
+  <rect width="400" height="300" rx="16" fill="url(#skyGrad)"/>
+  <circle cx="280" cy="90" r="45" fill="url(#sunGlow)"/>
+  <!-- Gentle rolling hills -->
+  <path d="M 0,220 Q 90,180 200,210 T 400,195 L 400,300 L 0,300 Z" fill="#d8b2db" opacity="0.45"/>
+  <path d="M 0,240 Q 120,200 240,230 T 400,220 L 400,300 L 0,300 Z" fill="#e7a5c2" opacity="0.6"/>
+  <!-- Floating clouds -->
+  <g fill="#ffffff" opacity="0.75" filter="url(#softGlow)">
+    <ellipse cx="110" cy="95" rx="35" ry="16"/>
+    <ellipse cx="130" cy="88" rx="25" ry="20"/>
+    <ellipse cx="90" cy="98" rx="20" ry="12"/>
+    <ellipse cx="320" cy="140" rx="40" ry="16"/>
+    <ellipse cx="340" cy="132" rx="24" ry="18"/>
+  </g>
+  <!-- Tiny stars -->
+  <g fill="#ffffff" opacity="0.9">
+    <path d="M70,50 Q70,58 78,58 Q70,58 70,66 Q70,58 62,58 Q70,58 70,50 Z"/>
+    <path d="M220,70 Q220,76 226,76 Q220,76 220,82 Q220,76 214,76 Q220,76 220,70 Z"/>
+    <path d="M350,60 Q350,65 355,65 Q350,65 350,70 Q350,65 345,65 Q350,65 350,60 Z"/>
+  </g>
 </svg>
+

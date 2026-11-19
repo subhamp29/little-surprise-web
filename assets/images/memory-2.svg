@@ -1,75 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
   <defs>
-    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#ffe8b8"/>
-      <stop offset="50%" stop-color="#ffd08a"/>
-      <stop offset="100%" stop-color="#ffecd2"/>
+    <linearGradient id="cupGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff0f5"/>
+      <stop offset="100%" stop-color="#fbd3e3"/>
     </linearGradient>
-    <radialGradient id="sunGlow" cx="50%" cy="38%" r="30%">
-      <stop offset="0%" stop-color="#fffde0" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#ffd08a" stop-opacity="0"/>
-    </radialGradient>
-    <filter id="soft">
-      <feGaussianBlur stdDeviation="1.8" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
+    <linearGradient id="bgWarm" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fcedeb"/>
+      <stop offset="50%" stop-color="#fbe0ec"/>
+      <stop offset="100%" stop-color="#eed8f5"/>
+    </linearGradient>
   </defs>
+  <rect width="400" height="300" rx="16" fill="url(#bgWarm)"/>
+  
+  <!-- Table surface -->
+  <path d="M 0,230 Q 200,210 400,230 L 400,300 L 0,300 Z" fill="#edd6e2" opacity="0.7"/>
 
-  <!-- Sky background -->
-  <rect width="400" height="300" fill="url(#skyGrad)"/>
-  <!-- Sun glow overlay -->
-  <ellipse cx="200" cy="115" rx="90" ry="80" fill="url(#sunGlow)"/>
+  <!-- Saucer -->
+  <ellipse cx="200" cy="225" rx="65" ry="14" fill="#ffffff" opacity="0.8"/>
+  <ellipse cx="200" cy="223" rx="55" ry="10" fill="#f8c8dc" opacity="0.5"/>
 
-  <!-- Clouds -->
-  <ellipse cx="80" cy="80" rx="45" ry="22" fill="#fff" opacity="0.75"/>
-  <ellipse cx="110" cy="68" rx="30" ry="18" fill="#fff" opacity="0.75"/>
-  <ellipse cx="55" cy="72" rx="28" ry="16" fill="#fff" opacity="0.70"/>
+  <!-- Coffee Cup -->
+  <path d="M 160,150 Q 160,215 200,215 Q 240,215 240,150 Z" fill="url(#cupGrad)" stroke="#eed5e1" stroke-width="2"/>
+  
+  <!-- Handle -->
+  <path d="M 235,160 Q 265,160 260,185 Q 255,200 235,198" fill="none" stroke="#fbc5db" stroke-width="6" stroke-linecap="round"/>
 
-  <ellipse cx="310" cy="60" rx="40" ry="18" fill="#fff" opacity="0.65"/>
-  <ellipse cx="335" cy="50" rx="25" ry="14" fill="#fff" opacity="0.65"/>
-  <ellipse cx="290" cy="55" rx="22" ry="13" fill="#fff" opacity="0.60"/>
+  <!-- Latte Art Heart -->
+  <ellipse cx="200" cy="155" rx="36" ry="12" fill="#c99c82"/>
+  <ellipse cx="200" cy="155" rx="34" ry="10" fill="#dfbba5"/>
+  <path d="M200,161 C196,155 190,152 193,149 C196,146 200,150 200,153 C200,150 204,146 207,149 C210,152 204,155 200,161 Z" fill="#ffffff" opacity="0.9"/>
 
-  <ellipse cx="200" cy="45" rx="30" ry="13" fill="#fff" opacity="0.55"/>
-
-  <!-- Sun -->
-  <circle cx="200" cy="115" r="34" fill="#ffe680" stroke="#ffd040" stroke-width="2" filter="url(#soft)"/>
-  <!-- Sun rays -->
-  <g stroke="#ffd040" stroke-width="2" stroke-linecap="round" opacity="0.7">
-    <line x1="200" y1="72" x2="200" y2="62"/>
-    <line x1="224" y1="80" x2="231" y2="72"/>
-    <line x1="232" y1="104" x2="242" y2="104"/>
-    <line x1="224" y1="128" x2="231" y2="136"/>
-    <line x1="200" y1="136" x2="200" y2="146"/>
-    <line x1="176" y1="128" x2="169" y2="136"/>
-    <line x1="168" y1="104" x2="158" y2="104"/>
-    <line x1="176" y1="80" x2="169" y2="72"/>
+  <!-- Steaming Hearts -->
+  <g fill="none" stroke="#e8a8c4" stroke-width="2" stroke-linecap="round" opacity="0.75">
+    <path d="M 190,135 Q 185,115 192,100" />
+    <path d="M 210,130 Q 215,110 208,95" />
   </g>
+  <path d="M200,85 C197,80 192,78 194,75 C197,72 200,76 200,78 C200,76 203,72 206,75 C208,78 203,80 200,85 Z" fill="#f3a7c6" opacity="0.7"/>
 
-  <!-- Phone in lower half -->
-  <rect x="148" y="162" width="104" height="118" rx="16" ry="16" fill="#fff" stroke="#f5d5a8" stroke-width="2.2" filter="url(#soft)"/>
-  <!-- Phone notch -->
-  <rect x="178" y="169" width="44" height="7" rx="3.5" fill="#f5d5a8" opacity="0.6"/>
-  <!-- Screen -->
-  <rect x="156" y="182" width="88" height="88" rx="6" fill="#fffdf5"/>
-
-  <!-- Chat bubbles on phone - she asking about health -->
-  <rect x="161" y="188" width="70" height="38" rx="8" fill="#ffe6ea" stroke="#f5a0c8" stroke-width="1.2"/>
-  <text x="167" y="202" font-size="8.5" fill="#9b4870" font-family="sans-serif">Ab tabiyat kaisi hai?</text>
-  <text x="167" y="215" font-size="8" fill="#9b4870" font-family="sans-serif">Thoda better hoon.</text>
-
-  <rect x="161" y="230" width="65" height="32" rx="8" fill="#e8d5ff" stroke="#c9b0ee" stroke-width="1.2"/>
-  <text x="167" y="243" font-size="8" fill="#6b3fa0" font-family="sans-serif">Medicine li?</text>
-  <text x="167" y="254" font-size="8" fill="#6b3fa0" font-family="sans-serif">Haan, le li.</text>
-
-  <rect x="161" y="266" width="72" height="28" rx="8" fill="#ffe6ea" stroke="#f5a0c8" stroke-width="1.2"/>
-  <text x="167" y="279" font-size="8" fill="#9b4870" font-family="sans-serif">Achhe se rest karna, okay?</text>
-
-  <rect x="161" y="298" width="55" height="22" rx="8" fill="#e8d5ff" stroke="#c9b0ee" stroke-width="1.2"/>
-  <text x="167" y="312" font-size="7.5" fill="#6b3fa0" font-family="sans-serif">Haan, tum bhi tension mat lo 😊</text>
-
-  <!-- Warm label -->
-  <text x="200" y="253" text-anchor="middle" font-size="9" fill="#c08020" font-family="sans-serif" opacity="0.8">08:14 AM</text>
-
-  <!-- Bottom label -->
-  <text x="200" y="287" text-anchor="middle" font-size="13.5" fill="#b06000" font-family="'Georgia', serif" font-style="italic" opacity="0.9">Tumhara baar-baar haal poochhna 🥹</text>
+  <!-- Gentle sparkles around -->
+  <g fill="#fff" opacity="0.8">
+    <path d="M110,110 Q110,116 116,116 Q110,116 110,122 Q110,116 104,116 Q110,116 110,110 Z"/>
+    <path d="M290,120 Q290,125 295,125 Q290,125 290,130 Q290,125 285,125 Q290,125 290,120 Z"/>
+  </g>
 </svg>
+
