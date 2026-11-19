@@ -124,6 +124,7 @@
   const screens = [
     document.getElementById("welcome"),
     document.getElementById("notesSection"),
+    document.getElementById("baateinSection"),
     document.getElementById("letterSection"),
     document.getElementById("memoriesSection"),
     document.getElementById("surpriseSection"),
@@ -194,7 +195,7 @@
         stopTypewriter();
       }
 
-      if (targetIndex === 5) {
+      if (targetIndex === 6) {
         // Goodbye screen: reveal teasing note after entrance
         const teasingNote = document.getElementById("teasingNote");
         if (teasingNote) {
@@ -217,24 +218,29 @@
     enterWorldBtn.addEventListener("click", () => goToScreen(1)); // Welcome -> Notes
   }
 
-  const notesToLetterBtn = document.getElementById("notesToLetterBtn");
-  if (notesToLetterBtn) {
-    notesToLetterBtn.addEventListener("click", () => goToScreen(2)); // Notes -> Letter
+  const notesToBaateinBtn = document.getElementById("notesToBaateinBtn");
+  if (notesToBaateinBtn) {
+    notesToBaateinBtn.addEventListener("click", () => goToScreen(2)); // Notes -> Chhoti Si Baatein
+  }
+
+  const baateinToLetterBtn = document.getElementById("baateinToLetterBtn");
+  if (baateinToLetterBtn) {
+    baateinToLetterBtn.addEventListener("click", () => goToScreen(3)); // Chhoti Si Baatein -> Letter
   }
 
   const letterToMemoriesBtn = document.getElementById("letterToMemoriesBtn");
   if (letterToMemoriesBtn) {
-    letterToMemoriesBtn.addEventListener("click", () => goToScreen(3)); // Letter -> Memories
+    letterToMemoriesBtn.addEventListener("click", () => goToScreen(4)); // Letter -> Memories
   }
 
   const memoriesToSurpriseBtn = document.getElementById("memoriesToSurpriseBtn");
   if (memoriesToSurpriseBtn) {
-    memoriesToSurpriseBtn.addEventListener("click", () => goToScreen(4)); // Memories -> Surprise
+    memoriesToSurpriseBtn.addEventListener("click", () => goToScreen(5)); // Memories -> Surprise
   }
 
   const surpriseToGoodbyeBtn = document.getElementById("surpriseToGoodbyeBtn");
   if (surpriseToGoodbyeBtn) {
-    surpriseToGoodbyeBtn.addEventListener("click", () => goToScreen(5)); // Surprise -> Goodbye
+    surpriseToGoodbyeBtn.addEventListener("click", () => goToScreen(6)); // Surprise -> Goodbye
   }
 
   const backToTopBtn = document.getElementById("backToTopBtn");

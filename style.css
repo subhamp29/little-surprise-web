@@ -878,6 +878,86 @@ body {
   font-weight: 500;
 }
 
+/* Scattered note positioning - Chhoti Si Baatein section */
+.note-baatein-1 {
+  top: 5px;
+  left: 2%;
+  --rot: -5deg;
+  transform: rotate(var(--rot));
+}
+
+.note-baatein-2 {
+  top: 110px;
+  right: 3%;
+  --rot: 6deg;
+  transform: rotate(var(--rot));
+  animation-delay: -1.2s;
+}
+
+.note-baatein-3 {
+  top: 210px;
+  left: 4%;
+  --rot: 4deg;
+  transform: rotate(var(--rot));
+  animation-delay: -2.4s;
+}
+
+.note-baatein-4 {
+  top: 310px;
+  right: 2%;
+  --rot: -6deg;
+  transform: rotate(var(--rot));
+  animation-delay: -3.6s;
+}
+
+.note-baatein-5 {
+  top: 410px;
+  left: 3%;
+  --rot: -4deg;
+  transform: rotate(var(--rot));
+  animation-delay: -1.8s;
+}
+
+.note-baatein-6 {
+  top: 510px;
+  right: 3%;
+  --rot: 5deg;
+  transform: rotate(var(--rot));
+  animation-delay: -0.8s;
+}
+
+.note-baatein-7 {
+  top: 610px;
+  left: 2%;
+  --rot: 3deg;
+  transform: rotate(var(--rot));
+  animation-delay: -2.8s;
+}
+
+.note-baatein-8 {
+  top: 710px;
+  right: 2%;
+  --rot: -5deg;
+  transform: rotate(var(--rot));
+  animation-delay: -1.5s;
+}
+
+.note-baatein-9 {
+  top: 810px;
+  left: 3%;
+  --rot: -3deg;
+  transform: rotate(var(--rot));
+  animation-delay: -2s;
+}
+
+.note-baatein-10 {
+  top: 900px;
+  right: 3%;
+  --rot: 4deg;
+  transform: rotate(var(--rot));
+  animation-delay: -3.2s;
+}
+
 @keyframes starPulse {
   0% { transform: scale(1); opacity: 0.85; }
   100% { transform: scale(1.2); opacity: 1; }
